@@ -103,12 +103,32 @@
                         <input type="hidden" name="pno" th:value="${param.bno}"/>
                     </form>
                 </div><!-- 댓글쓰기 -->
-
-
-
-
             </div>
         </main>
+
+        <div class="modal hide" id="cmtModal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">대댓글 쓰기</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form name="cmmtfrm" id="cmmtfrm" method="post">
+                            <textarea name="comments" id="cmmt" rows="8" cols="60"
+                                      class="span4"></textarea>
+                            <input type="hidden" name="userid" value="abc123">
+                            <input type="hidden" name="pno" value="">
+                            <input type="hidden" name="ref" id="refno">
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" id="cmmtbtn"
+                                class="btn btn-danger">대댓글 작성</button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- 대댓글 쓰기 -->
+
     </th:block>
 
     <th:block layout:fragment="script">
