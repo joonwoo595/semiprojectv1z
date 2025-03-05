@@ -23,4 +23,6 @@ public interface BoardService {
     boolean newReply(NewReplyDTO newreplyDTO);
 
     List<Reply> readReply(int bno);
+
+    boolean newComment(NewReplyDTO newreplyDTO);
 }

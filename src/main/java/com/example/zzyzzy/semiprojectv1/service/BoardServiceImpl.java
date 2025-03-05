@@ -77,4 +77,10 @@ public class BoardServiceImpl implements BoardService {
     public List<Reply> readReply(int pno) {
         return boardMapper.selectReply(pno);
     }
+
+    @Override
+    public boolean newComment(NewReplyDTO newreplyDTO) {
+        int result = boardMapper.insertComment(newreplyDTO);
+        return result > 0;
+    }
 }
