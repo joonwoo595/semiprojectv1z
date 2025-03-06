@@ -10,7 +10,9 @@ public class GalleryController {
 
     @GetMapping("/list")
     public String list() {
+
         return "views/gallery/list";
+
     }
 
 }
