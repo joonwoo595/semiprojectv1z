@@ -12,7 +12,6 @@ public class BoardListDTO {
     private int cpg;
     private int stblk;
     private int cntpg;
-
     private int edblk;
     private List<?> bdlist;
 
