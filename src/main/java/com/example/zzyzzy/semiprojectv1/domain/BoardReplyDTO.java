@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-@Builder
 public class BoardReplyDTO {
     private Board bd;
     private List<?> rps;
@@ -17,5 +16,3 @@ public class BoardReplyDTO {
         this.rps = rps;
     }
 }
-
-

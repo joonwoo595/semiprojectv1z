@@ -7,15 +7,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class Gallery {
+public class GalleryListDTO {
     private int gno;
     private String title;
     private String userid;
     private LocalDateTime regdate;
     private String thumbs;
     private String views;
-    private String contents;
     private String simgname;
 }
-
-

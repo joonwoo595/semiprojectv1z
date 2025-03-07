@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-
 public class BoardListDTO {
     private int cpg;
     private int stblk;
@@ -17,13 +16,10 @@ public class BoardListDTO {
 
     public BoardListDTO(int cpg, int totalItems, int pageSize, List<?> bdlist) {
         this.cpg = cpg;
-        this.cntpg = (int)Math.ceil((double)totalItems/pageSize);
+        this.cntpg = (int) Math.ceil((double) totalItems / pageSize);
         this.bdlist = bdlist;
-        // 페이지네이션 범위 계산
-
+        // 페이지네이션 범위계산
         this.stblk = ((cpg - 1) / 10) * 10 + 1;
-        this.edblk = Math.min(stblk + 10-1,cntpg);
+        this.edblk = Math.min(stblk + 10 - 1, cntpg);
     }
 }
-
-

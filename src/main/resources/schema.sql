@@ -1,7 +1,7 @@
 create table if not exists members (
     mno int auto_increment primary key,
     userid varchar(18) unique not null,
-    password varchar(64) not null,
+    passwd varchar(64) not null,
     name   varchar(50) not null,
     email  varchar(100) not null,
     regdate datetime default current_timestamp
@@ -27,10 +27,9 @@ create table if not exists replys (
     ref  int not null,
     pno  int not null,
     primary key (rno)
---     foreign key (userid) references members (userid)
---     foreign key (pno) references boards (bno)
-    );
-
+    -- foreign key (userid) references members (userid)
+    -- foreign key (pno) references boards (bno)
+);
 
 create table if not exists gallerys (
     gno int auto_increment,
@@ -45,7 +44,7 @@ create table if not exists gallerys (
     foreign key (userid) references members (userid)
 );
 
-create table if not exists gallerys_images (
+create table if not exists gallery_images (
     gino int auto_increment,
     gno int not null,
     imgname varchar(128) not null,
@@ -54,4 +53,3 @@ create table if not exists gallerys_images (
     primary key (gino),
     foreign key (gno) references gallerys (gno)
 );
-

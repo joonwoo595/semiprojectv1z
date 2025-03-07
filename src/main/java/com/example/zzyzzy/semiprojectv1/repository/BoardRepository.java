@@ -15,10 +15,10 @@ public interface BoardRepository {
     @Select("select bno, title, userid, regdate, thumbs, views from boards order by bno desc limit #{stnum}, #{pageSize}")
     List<BoardDTO> selectBoard(int stnum, int pageSize);
 
-//    @Select("select ceil(count(bno) / #{pageSize}) cntpg from boards")
-//    int countPagesBoard(int pageSize);
+    //@Select("select ceil(count(bno) / #{pageSize}) cntpg from boards")
+    //int countPagesBoard(int pageSize);
 
-    @Select("select count(bno) cntod from boards")
+    @Select("select count(bno) cntbd from boards")
     int countBoard();
 
     //List<BoardDTO> selectFindBoard(int stnum, int pageSize, String findtype, String findkey);
@@ -42,7 +42,5 @@ public interface BoardRepository {
     List<Reply> selectReply(int pno);
 
     @Insert("insert into replys (userid, comments, ref, pno) values (#{userid}, #{comments}, #{ref}, #{pno})")
-    int insertComment(NewReplyDTO newreplyDTO);
-
-
+    int insertComment(NewReplyDTO newReplyDTO);
 }
