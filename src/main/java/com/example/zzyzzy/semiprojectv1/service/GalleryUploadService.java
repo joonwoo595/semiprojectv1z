@@ -25,6 +25,7 @@ public class GalleryUploadService {
     @Value("${saveSimgDir}") private String saveSImgDir;
 
     public List<NewGalleryImageDTO> processUpload(List<MultipartFile> ginames, int gno) {
+        // 업로드 처리된 파일정보를 저장하기 위해 리스트 변수 선언
         List<NewGalleryImageDTO> gis = new ArrayList<>();
         for (MultipartFile giname : ginames) {
             // 업로드할 파일 정보 알아내기 - 첨부파일명
@@ -34,9 +35,11 @@ public class GalleryUploadService {
             int fsize = (int) (giname.getSize() / 1024);
 
             // 첨부파일을 지정한 위치에 저장
+
             String savepath = saveImgDir + fname;
 
             try {
+                // 임시폴더에 저장된 업로드 예정 파일을 지정한 위치에 저장
                 giname.transferTo(new File(savepath));
 
                 // 첨부파일 정보를 클래스객체로 만들어 리스트에 저장
