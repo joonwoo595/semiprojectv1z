@@ -2,6 +2,7 @@ package com.example.zzyzzy.semiprojectv1.repository;
 
 import com.example.zzyzzy.semiprojectv1.domain.*;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -25,4 +26,7 @@ public interface GalleryRepository {
 
 
     int insertGallery(NewGalleryDTO gal);
+
+    @Insert("insert into gallery_images (gno,imgname,imgsize) values (#{gno},#{imgname},#{imgsize})")
+    int insertGalleryImage(NewGalleryImageDTO gi);
 }

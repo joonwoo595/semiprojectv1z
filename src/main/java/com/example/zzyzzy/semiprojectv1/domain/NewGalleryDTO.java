@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Builder
 public class NewGalleryDTO {
 
-    private int ggno;
+    private Integer ggno;
     private String title;
     private String userid;
     private String simgname;
