@@ -3,7 +3,6 @@ package com.example.zzyzzy.semiprojectv1.controller;
 
 import com.example.zzyzzy.semiprojectv1.domain.Member;
 import com.example.zzyzzy.semiprojectv1.domain.MemberDTO;
-import com.example.zzyzzy.semiprojectv1.repository.MemberRepository;
 import com.example.zzyzzy.semiprojectv1.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
