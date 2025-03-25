@@ -29,8 +29,7 @@ public class BoardController {
     private final GoogleRecaptchaService googleRecaptchaService;
 
     @GetMapping("/list")
-    public String list(Model m, @RequestParam(defaultValue = "1") int cpg,
-                       HttpServletResponse response) {
+    public String list(HttpServletResponse response) {
         // 클라이언트 캐시 제어
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
@@ -40,7 +39,7 @@ public class BoardController {
         // cpg 매개변수가 전달되지 않을 경우 기본값인 1이 전달됨
         log.info("board/list 호출!!");
 
-        m.addAttribute("bdsdto", boardService.readBoard(cpg));
+
         // m.addAttribute("bds", boardService.readBoard(cpg));
         // m.addAttribute("cpg", cpg);
         // m.addAttribute("stblk", ((cpg - 1) / 10) * 10 + 1);
