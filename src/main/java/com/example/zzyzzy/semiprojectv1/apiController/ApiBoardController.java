@@ -13,14 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/board")
 @RequiredArgsConstructor
-public class APIBoardController {
+public class ApiBoardController {
 
     private final BoardService boardService;
 
-
     @GetMapping("/list")
-    public ResponseEntity<BoardListDTO> list(@RequestParam(defaultValue = "1") int cpg){
-        BoardListDTO boardListDTO= boardService.readBoard(cpg);
+    public ResponseEntity<BoardListDTO> list(@RequestParam(defaultValue = "1") int cpg) {
+        BoardListDTO boardListDTO = boardService.readBoard(cpg);
+
+        return new ResponseEntity<>(boardListDTO, HttpStatus.OK);
+    }
+
+        @GetMapping("/find")
+    public ResponseEntity<BoardListDTO> find(@RequestParam(defaultValue = "1") int cpg,String findtype,String findkey) {
+        BoardListDTO boardListDTO = boardService.findBoard(cpg,findtype,findkey);
 
         return new ResponseEntity<>(boardListDTO, HttpStatus.OK);
     }

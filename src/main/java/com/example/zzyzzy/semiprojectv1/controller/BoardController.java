@@ -6,7 +6,6 @@ import com.example.zzyzzy.semiprojectv1.service.BoardService;
 import com.example.zzyzzy.semiprojectv1.service.GoogleRecaptchaService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 @Slf4j
 @Controller
@@ -49,13 +48,7 @@ public class BoardController {
     }
 
     @GetMapping("/find")
-    public String find(Model m, String findtype, String findkey,
-           @RequestParam(defaultValue = "1") int cpg) {
-
-        m.addAttribute("bds", boardService.findBoard(cpg, findtype, findkey));
-        m.addAttribute("cpg", cpg);
-        m.addAttribute("stblk", ((cpg - 1) / 10) * 10 + 1);
-        m.addAttribute("cntpg", boardService.countfindBoard(findtype, findkey));
+    public String find() {
 
         return "views/board/list";
     }
